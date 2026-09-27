@@ -24,7 +24,7 @@ class Solution:
             elif x_left > y_right:
                 end = part_x - 1
             else:
-                start = start + 1
+                start = part_x + 1
 
             
         return 0
