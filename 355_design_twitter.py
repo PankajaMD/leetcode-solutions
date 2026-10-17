@@ -25,7 +25,7 @@ class Twitter:
 
         def unfollow(self, id: int):
             if id != self.id:
-                self.followed.remove(id)
+                self.followed.discard(id)  # Safely remove without raising a KeyError[cite: 10]
 
         def post(self, id: int, time: int):
             newTweet = Twitter.Tweet(id, time)
@@ -71,12 +71,3 @@ class Twitter:
     def unfollow(self, followerId: int, followeeId: int) -> None:
         if followerId in self.userMap and followerId != followeeId:
             self.userMap[followerId].unfollow(followeeId)
-        
-
-
-# Your Twitter object will be instantiated and called as such:
-# obj = Twitter()
-# obj.postTweet(userId,tweetId)
-# param_2 = obj.getNewsFeed(userId)
-# obj.follow(followerId,followeeId)
-# obj.unfollow(followerId,followeeId)
